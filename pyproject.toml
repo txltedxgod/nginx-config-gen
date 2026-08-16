@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nginx-config-gen"
+version = "0.1.0"
+description = "Declarative Nginx and Caddy reverse proxy configuration generator from YAML specs"
+authors = [{ name = "txltedxgod", email = "seidoutakidzava@gmail.com" }]
+dependencies = [
+    "click>=8.1.7",
+    "pydantic>=2.5.0",
+    "jinja2>=3.1.2",
+    "pyyaml>=6.0.1"
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+nginx-gen = "nginx_gen.cli:main"
