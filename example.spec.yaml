@@ -1,0 +1,16 @@
+version: "1.0"
+vhosts:
+  - server_name: "api.example.com"
+    listen_port: 443
+    ssl_enabled: true
+    ssl_cert_path: "/etc/letsencrypt/live/api.example.com/fullchain.pem"
+    ssl_key_path: "/etc/letsencrypt/live/api.example.com/privkey.pem"
+    gzip_enabled: true
+    locations:
+      - path: "/"
+        proxy_pass: "http://127.0.0.1:8000"
+        websocket: false
+        client_max_body_size_mb: 25
+      - path: "/ws/"
+        proxy_pass: "http://127.0.0.1:8000"
+        websocket: true
